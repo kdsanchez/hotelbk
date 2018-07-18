@@ -33,7 +33,7 @@ module.exports = {
 
             })
         })
-    }
+    },
     destroy: function (req,res) {
 		var id = req.param('id');
 		if (!id) return res.send("No id specified.",500);
@@ -44,10 +44,35 @@ module.exports = {
 
 			Tablacontacto.destroy(id, function contactoDestroyed(err) {
 				if (err) return res.send(err,500);
-				//return res.redirect('/Tablacontacto');
-				return 1;
+				return res.redirect("/");
 			});
 
 		})
-	}
+	},
+  create: function(req,res) {
+  	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
+
+  	Tablacontacto.create(params, function userCreated (err, createdContacto) {
+
+  		if (err) return res.send(err,500);
+
+  		//res.redirect('/user/show/'+ createdUser.id);
+  		res.redirect('/'+ createdContacto.id);
+  	});
+  },
+  edit: function (req,res) {
+    var id = req.param('id');
+
+    if (!id) return res.send("No id specified.",500);
+
+    User.find(id, function userFound (err,user){
+      if (err) return res.send(err,500);
+      if (!user) return res.send("Contacto "+id+" not found.",404);
+
+      /*res.view({
+        user: user
+      })*/
+      res.redirect("/");
+    });
+  }
 };
