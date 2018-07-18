@@ -12,7 +12,7 @@ module.exports = {
             if(!clientes || clientes.length == 0){
                 return res.send({
                     'success': false,
-                    'message': 'No records found' 
+                    'message': 'No records found'
                 })
             }
 

@@ -1,9 +1,9 @@
 /**
- * Tablacontacto.js
- *
- * @description :: A model definition.  Represents a database table/collection/etc.
- * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
- */
+* Tablacontacto.js
+*
+* @description :: A model definition.  Represents a database table/collection/etc.
+* @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
+*/
 
 module.exports = {
 
@@ -13,31 +13,31 @@ module.exports = {
     nombre: {
       type: 'string'
     },
-    apaterno: { 
+    apaterno: {
       type : 'string'
     },
     amaterno: {
       type : 'string'
-  },
-  tipo_documento: {
+    },
+    tipo_documento: {
       type : 'string'
-},
-  num_documento: {
-     type : 'string'
-},
-num_documento: {
-  type : 'string'
-},
-direccion: {
-  type : 'string'
-},
-telefono: {
-  type : 'number'
-},
-email: {
-  type : 'string'
-},
+    },
+    num_documento: {
+      type : 'string'
+    },
+    num_documento: {
+      type : 'string'
+    },
+    direccion: {
+      type : 'string'
+    },
+    telefono: {
+      type : 'number'
+    },
+    email: {
+      type : 'string'
+    },
 
-},
-conection: 'hotel'
+  },
+  conection: 'hotel'
 };
