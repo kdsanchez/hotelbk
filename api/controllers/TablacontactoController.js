@@ -34,5 +34,20 @@ module.exports = {
             })
         })
     }
+    destroy: function (req,res) {
+		var id = req.param('id');
+		if (!id) return res.send("No id specified.",500);
 
+		Tablacontacto.find(id, function foundContacto(err, user) {
+			if (err) return res.send(err,500);
+			if (!user) return res.send("No user with that idid exists.",404);
+
+			Tablacontacto.destroy(id, function contactoDestroyed(err) {
+				if (err) return res.send(err,500);
+				//return res.redirect('/Tablacontacto');
+				return 1;
+			});
+
+		})
+	}
 };
