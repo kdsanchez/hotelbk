@@ -44,7 +44,7 @@ module.exports = {
 
 			Tablacontacto.destroy(id, function contactoDestroyed(err) {
 				if (err) return res.send(err,500);
-				return res.redirect("/");
+				return res.redirect("http://localhost:4200/clientes");
 			});
 
 		})
