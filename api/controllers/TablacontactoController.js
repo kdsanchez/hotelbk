@@ -65,14 +65,18 @@ module.exports = {
 
     if (!id) return res.send("No id specified.",500);
 
-    User.find(id, function userFound (err,user){
+    Tablacontacto.find(id, function userFound (err,user){
       if (err) return res.send(err,500);
       if (!user) return res.send("Contacto "+id+" not found.",404);
 
       /*res.view({
         user: user
       })*/
-      res.redirect("/");
+      res.send({
+          'success': true,
+          'message': 'Records fetched',
+          'data': clientes
+      })
     });
   }
 };
