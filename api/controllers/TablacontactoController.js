@@ -50,14 +50,15 @@ module.exports = {
 		})
 	},
   create: function(req,res) {
-  	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
 
+  	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
+    
   	Tablacontacto.create(params, function userCreated (err, createdContacto) {
 
   		if (err) return res.send(err,500);
-
+      res.send({ 'menssage': params});
   		//res.redirect('/user/show/'+ createdUser.id);
-  		res.redirect('/'+ createdContacto.id);
+  		//res.redirect("http://localhost:4200/clientes");
   	});
   },
   edit: function (req,res) {
