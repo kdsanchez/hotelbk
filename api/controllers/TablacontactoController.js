@@ -50,14 +50,15 @@ module.exports = {
 		})
 	},
   create: function(req,res) {
+
   	var params = _.extend(req.query || {}, req.params || {}, req.body || {});
 
   	Tablacontacto.create(params, function userCreated (err, createdContacto) {
 
   		if (err) return res.send(err,500);
-
+      res.send({ 'menssage': params});
   		//res.redirect('/user/show/'+ createdUser.id);
-  		res.redirect('/'+ createdContacto.id);
+  		//res.redirect("http://localhost:4200/clientes");
   	});
   },
   edit: function (req,res) {
@@ -65,14 +66,16 @@ module.exports = {
 
     if (!id) return res.send("No id specified.",500);
 
-    User.find(id, function userFound (err,user){
+    Tablacontacto.find(id, function userFound (err,clientes){
       if (err) return res.send(err,500);
-      if (!user) return res.send("Contacto "+id+" not found.",404);
+      if (!clientes) return res.send("Contacto "+id+" not found.",404);
 
-      /*res.view({
-        user: user
-      })*/
-      res.redirect("/");
+      res.send({
+        'success': true,
+        'message': 'Records fetched',
+        'data': clientes
+      })
+
     });
   }
 };
